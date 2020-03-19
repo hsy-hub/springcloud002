@@ -1,0 +1,20 @@
+server:
+  port: 8001 #服务器启动端口
+mybatis:
+  type-aliases-package: com.pojoapi.pojo
+  mapper-locations: classpath:mybatis/*.xml
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    username: root
+    password: 123456
+    url: jdbc:mysql://localhost:3306/springcloud_db1?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  application: #消费者访问的地址就这一个地址 #不能修改因为消费者访问的ID是同一个由ribbon来分配用哪一个
+    name: productor
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka7000.com:7000/eureka,http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka
