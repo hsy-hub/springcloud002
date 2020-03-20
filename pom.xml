@@ -19,6 +19,7 @@
         <module>productor8001</module>
         <module>productor8002</module>
         <module>dashboard</module>
+        <module>ZuulApp</module>
     </modules>
 
     <dependencyManagement>

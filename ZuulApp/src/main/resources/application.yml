@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: springcloud-zuul
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka7000.com:7000/eureka,http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka
+  instance:
+    instance-id: springcloud-zuul9001 #id
+    prefer-ip-address: true #显示真实的ip
+server:
+  port: 9001
+zuul:
+  routes:
+    myproduct.serviceid: privode #微服务地址
+    myproduct.path: /myproduct/** #映射的地址
+  ignored-services: privode #不能以这个地址访问了，“*”表示隐藏全部
+  prefix: /he #设置公共的前缀
